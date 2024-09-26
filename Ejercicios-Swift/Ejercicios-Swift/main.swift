@@ -1,9 +1,10 @@
 // EJERCICIO 1
 
-/**
+/*
  
+
  
-func hacerMedia(numeros: [Int]) -> Int {
+ func hacerMedia(numeros: [Int]) -> Int { //EJERCICIO 3 (Función añadida en el ejercicio 1)
     var suma = 0
     for i in numeros {
         suma += numeros[i-1]
@@ -37,37 +38,85 @@ while numeros.count != 5
 var media = hacerMedia(numeros: numeros)
 print(media)
 
- */
+ **/
+
+
+ 
 
 // EJERCICIO 2
-var cant = 0
-
+var continuarJugando = true
+var bala = 0
+var numeroJugador = 1
 repeat {
     print("¿Quieres jugar a la ruleta rusa? [y] [n]: ")
     let respuesta = readLine()!
     if respuesta == "y"
     {
-        let numeroRandom = Int.random(in: 1..<3)
-        print("El número que mata es: ", numeroRandom)
+        
+        if bala == 0 {
+            bala = Int.random(in: 1..<5)
+        }
+        
+        print("El número que mata es: ", bala)
         
         print("Pulsa enter para continuar: ")
-        let numeroRandom2 = Int.random(in: 1..<3)
-        if numeroRandom2 == numeroRandom
+        print(readLine()!)
+    
+        let disparo = Int.random(in: 1..<5)
+        
+        if disparo == bala
         {
-            print("El número que ha salido es: \(numeroRandom2). Has perdido")
+        
+            print("El número que ha salido al jugador\(numeroJugador)  es: \(disparo). Has perdido")
         }
         else
         {
-            print("El número que ha salido es: \(numeroRandom2). Has ganado")
+            if numeroJugador == 1
+            {
+                numeroJugador = 2
+            }
+            else
+            {
+                numeroJugador = 1
+            }
+            print("El número que ha salido al jugador\(numeroJugador)  es: \(disparo). Has ganado")
         }
         
     }
     else if respuesta == "n"
     {
-        cant = 1
+        continuarJugando = false
     }
     else
     {
         print("ERROR: responde con [y] o [n]")
     }
-} while cant == 0
+} while continuarJugando == true
+ 
+ 
+
+
+//EJERCICIO 4
+
+print("Escribe una frase: ")
+var frase : String = readLine()!
+
+var primeraPalabra = frase.split(separator:" ")
+
+for i in 1...primeraPalabra.count{
+    if primeraPalabra[i-1].first == "j"
+    {
+        primeraPalabra[i-1] = "j****"
+    }
+    else if primeraPalabra[i-1].first == "p"
+    {
+        primeraPalabra[i-1] = "p****"
+    }
+    else if primeraPalabra[i-1].first == "m"
+    {
+        primeraPalabra[i-1] = "m****"
+    }
+}
+
+var convertirFrase = primeraPalabra.joined(separator: " ")
+print(convertirFrase)
