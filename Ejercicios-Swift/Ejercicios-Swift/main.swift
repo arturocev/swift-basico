@@ -42,7 +42,7 @@ print(media)
 
 
  
-
+/*
 // EJERCICIO 2
 var continuarJugando = true
 var bala = 0
@@ -94,9 +94,32 @@ repeat {
 } while continuarJugando == true
  
  
-
+ **/
 
 //EJERCICIO 4
+
+//EJERCICIO 4
+func ponerAsteriscos(palabra: String) -> String {
+    var convertirPalabra = palabra
+    for i in 1...palabra.count {
+        if i == 1 && palabra.first == "j" {
+            convertirPalabra = "j"
+        } else if i == 1 && palabra.first == "p"
+        {
+            convertirPalabra = "p"
+        }
+        else if i == 1 && palabra.first == "m"
+        {
+            convertirPalabra = "m"
+        }
+        else
+        {
+            convertirPalabra = convertirPalabra+"*"
+        }
+    }
+    return convertirPalabra
+}
+
 
 print("Escribe una frase: ")
 var frase : String = readLine()!
@@ -104,18 +127,7 @@ var frase : String = readLine()!
 var primeraPalabra = frase.split(separator:" ")
 
 for i in 1...primeraPalabra.count{
-    if primeraPalabra[i-1].first == "j"
-    {
-        primeraPalabra[i-1] = "j****"
-    }
-    else if primeraPalabra[i-1].first == "p"
-    {
-        primeraPalabra[i-1] = "p****"
-    }
-    else if primeraPalabra[i-1].first == "m"
-    {
-        primeraPalabra[i-1] = "m****"
-    }
+    ponerAsteriscos(palabra: String (primeraPalabra[i-1]))
 }
 
 var convertirFrase = primeraPalabra.joined(separator: " ")
