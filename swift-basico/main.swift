@@ -5,6 +5,7 @@ print(num)
 
 //principalmente las variables las ponemos como constantes
 
+/*
 print("Hola, ¿cómo te llamas?: ")
 
 //Estructura de una función que devuelve un booleano y recibe un string
@@ -47,4 +48,6 @@ repeat {
     }
 } while nombreIncorrecto
 print("Hola", nombre)
- 
+*/
+
+opcionales()
